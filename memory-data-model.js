@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 class Model {
@@ -7,8 +8,12 @@ class Model {
   }
 
   get(_id) {
-    if(_id) return schema.findOne({_id});
-    else return schema.find({_id})
+    if(_id) {
+      return schema.findOne({_id});
+    }
+    else {
+      return schema.find({_id});
+    }
     // let response = id ? this.database.filter((record) => record.id === id) : this.database;
     // return Promise.resolve(response);
   }
