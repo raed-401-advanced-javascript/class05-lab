@@ -1,9 +1,9 @@
 'use strict';
 
-const model = require('./memory-data-model');
+const Model = require('./memory-data-model');
 
 const schema = require('./models/products-schema');
-class Product extends model{
+class Product extends Model{
   constructor(){
     super(schema);
   }

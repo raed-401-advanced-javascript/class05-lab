@@ -1,12 +1,12 @@
 'use strict';
 
-const model = require('./memory-data-model');
+const Model = require('./memory-data-model');
 
 const schema = require('./models/catogriey-schema');
-class catogriey extends model{
+class Catogriey extends Model{
   constructor(){
     super(schema);
   }
 }
 
-module.exports = catogriey;
+module.exports = Catogriey;

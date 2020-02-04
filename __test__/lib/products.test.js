@@ -1,6 +1,6 @@
 'use strict';
 
-const Products = require('../../product');
+const Products = require('../../product.js');
 require('@code-fellows/supergoose');
 
 describe('Products Model', () => {
@@ -15,7 +15,7 @@ describe('Products Model', () => {
     let obj = { price: 9, quantity_in_stock: 10 };
     return product.create(obj)
       .then(record => {
-        // console.log(record)
+        console.log(record);
         Object.keys(obj).forEach(key => {
           expect(record[key]).toEqual(obj[key]);
         });
@@ -23,8 +23,10 @@ describe('Products Model', () => {
   });
   it('can get() a product', () => {
     let obj = { price: 7, quantity_in_stock: 8 };
+    // console.log(JSON.stringify(product));
     return product.create(obj)
       .then(record => {
+        // console.log('*************',record);
         return product.get(record._id)
           .then(product_data => {
             // console.log(product_data)
@@ -42,6 +44,7 @@ describe('Products Model', () => {
         record.quantity_in_stock = 10;
         return product.update(record._id, record)
           .then(newPorduct => {
+            // console.log('********',newPorduct);
             return product.get(newPorduct._id)
               .then(data => {
                 // console.log(category)
@@ -56,6 +59,7 @@ describe('Products Model', () => {
     let obj = { price: 2, quantity_in_stock: 10 };
     return product.create(obj)
       .then(record => {
+        // console.log('********',record)
         return product.get(record._id)
           .then(product_data => {
             return product.delete(product_data._id)
